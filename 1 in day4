@@ -1,0 +1,81 @@
+
+#include <stdio.h>
+
+struct totsum
+{
+    int n;
+    int sum;
+};
+struct totsum input()
+{
+    struct totsum i;
+    printf("\nEnter the value of n:");
+    scanf("%d",&i.n);
+    return i;
+}
+struct totsum compute(struct totsum i)
+{
+    
+    i.sum=0;
+    for( int k=0;k<=i.n;k++)
+    {
+        i.sum=i.sum+k; 
+    }
+    return i;
+}
+void display(struct totsum i)
+{
+    
+    printf("Sum of first %d natural numbers is = %d ",i.n,i.sum);
+}
+int main()
+{
+    struct totsum i;
+    i=input();
+    i=compute(i);
+    display(i);
+    return 0;
+ }
+ 
+ 
+ Enter the value of n:2                                                                                                         
+Sum of first 2 natural numbers is = 3  
+***********************************************************************************************************************
+
+#include <stdio.h>
+
+struct display
+{
+    int n;
+    int a[50];
+};
+struct display readn()
+{
+    struct display i;
+    printf("\nHow many elements you want to input? \n");
+    scanf("%d",&i.n);
+    return i;
+}
+struct display readele(struct display i)
+{
+    printf("\nEnter the elements :\n");
+    for(int k=0;k<i.n;k++)
+    {
+        scanf("%d",&i.a[k]);
+    }
+    return i;
+}
+void output(struct display i)
+{
+    printf("\nEntered elements are:\n");
+    for(int k=0;k<i.n;k++)
+     printf("\n%d",i.a[k]);
+}
+void main()
+{
+    struct display i;
+    i=readn();
+    i=readele(i);
+    output(i);
+}
+******************************************************************************************************************
