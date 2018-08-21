@@ -5,12 +5,16 @@ struct totsum
 {
     int n;
     int sum;
+    int a[50];
 };
 struct totsum input()
 {
     struct totsum i;
-    printf("\nEnter the value of n:");
+    printf("\nEnter the size of the array:\n");
     scanf("%d",&i.n);
+    printf("\nEnter the elements:\n");
+    for(int k=0;k<i.n;K++)
+    scanf("%d",&i.a[k]);
     return i;
 }
 struct totsum compute(struct totsum i)
@@ -19,14 +23,13 @@ struct totsum compute(struct totsum i)
     i.sum=0;
     for( int k=0;k<=i.n;k++)
     {
-        i.sum=i.sum+k; 
+        i.sum=i.sum+i.a[k]; 
     }
     return i;
 }
 void display(struct totsum i)
 {
-    
-    printf("Sum of first %d natural numbers is = %d ",i.n,i.sum);
+    printf("Sum of the elements in array is = %d ",i.n,i.sum);
 }
 int main()
 {
@@ -35,11 +38,8 @@ int main()
     i=compute(i);
     display(i);
     return 0;
- }
- 
- 
- Enter the value of n:2                                                                                                         
-Sum of first 2 natural numbers is = 3  
+}
+
 ***********************************************************************************************************************
 
 #include <stdio.h>
@@ -79,3 +79,94 @@ void main()
     output(i);
 }
 ******************************************************************************************************************
+
+#include <stdio.h>
+#include<math.h>
+
+struct sqsum
+{
+    int n;
+    float sum;
+    int a[50];
+};
+
+struct sqsum read()
+{
+    struct sqsum i;
+    printf("\nEnter the value of n:\n");
+    scanf("%d",&i.n);
+    printf("\nEnter the elements:\n");
+    for(int k=0;k<i.n;k++)
+    scanf("%d",&i.a[k]);
+    return i;
+}
+struct sqsum compute(struct sqsum i)
+{
+    i.sum=0;
+    for(int k=0;k<=i.n;k++)
+    {
+        i.sum=i.sum+sqrt(i.a[k]);
+    }
+
+    return i;
+}
+void display(struct sqsum i)
+{
+    printf("\n Sum of squareroot of the input elements is= %f",i.n,i.sum);
+}
+
+int main()
+{
+    struct sqsum i;
+    i=read();
+    i=compute(i);
+    display(i);
+    return 0;
+ }
+ ********************************************************************************************************
+ 
+ struct small
+{
+    int n;
+    int a[50];
+    int s;
+};
+
+struct small read()
+{
+    struct small i;
+    printf("\nEnter the number of elements you want to input:\n");
+    scanf("%d",&i.n);
+    printf("\nEnter the array elements:\n");
+    for(int k=0;k<i.n;k++)
+    scanf("%d",&i.a[k]);
+    return i;
+}
+
+struct small compute(struct small i)
+{
+    i.s=i.a[0];
+    for(int k=0;k<i.n;k++)
+    {
+        if(i.s>i.a[k])
+        {
+            i.s=i.a[k];
+        }
+    }
+    return i;
+}
+
+void display(struct small i)
+{
+    printf("\nSmallest number among the other elements in the array is: %d",i.s);
+}
+
+int main()
+{
+    struct small i;
+    i=read();
+    i=compute(i);
+    display(i);
+    return 0;
+}
+************************************************************************************************************************
