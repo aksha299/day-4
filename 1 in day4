@@ -170,3 +170,58 @@ int main()
     return 0;
 }
 ************************************************************************************************************************
+
+#include <stdio.h>
+struct sequence
+{
+    int a[50];
+    int n;
+    int smallest;
+    int small;
+};
+
+struct sequence read()
+{
+    struct sequence i;
+    printf("\nHow many elements you want to input?\n");
+    scanf("%d",&i.n);
+    printf("\nEnter the elements: \n");
+    for(int k=0;k<i.n;k++)
+    {
+        scanf("%d",&i.a[k]);
+    }
+    return i;
+}
+
+void display(struct sequence i)
+{
+    printf("\nSmallest elemnt in the array is: %d",i.smallest);
+    printf("\nSecond smallest element in the array is: %d",i.small);
+}
+
+struct sequence compute(struct sequence i)
+{
+    i.smallest=i.a[0];
+    for(int k=0;k<i.n;k++)
+    {
+        if(i.smallest>i.a[k])
+        {
+            i.small=i.smallest;
+            i.smallest=i.a[k];
+        }
+         if(i.small>i.a[k]&&i.a[k]!=i.smallest)
+        i.small=i.a[k];
+    }
+    
+    return i;
+}
+
+int main()
+{
+    struct sequence i;
+    i=read();
+    i=compute(i);
+    display(i);
+
+}
+
